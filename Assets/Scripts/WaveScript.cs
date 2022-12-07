@@ -1,16 +1,15 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveScript : MonoBehaviour
 {
-    
     public GameObject minimapIcon;
     private Dictionary<GameObject, GameObject> _aircraft2Minimap = new Dictionary<GameObject, GameObject>();
     
     private void FixedUpdate()
     {
-        var radius = GetComponent<SphereCollider>().radius;
-        if (radius <= 10f)
+        if (transform.localScale.x < 8) 
         { 
             transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
         }

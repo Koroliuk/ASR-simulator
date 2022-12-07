@@ -1,29 +1,17 @@
+using System;
 using UnityEngine;
 
 public class RadarScript : MonoBehaviour
 {
     public GameObject wave;
-    
-    private int _state;
-    // private DateTime startTime;
-    
-    private void FixedUpdate()
+
+    private void Start()
     {
-        if (_state == 0)
-        {
-            Instantiate(wave);
-            _state = 1;
-        }
+        InvokeRepeating(nameof(CreateWave), 0.0f, 3f);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void CreateWave()
     {
-        // if (state == 1)
-        // {
-        //     Destroy(other.gameObject);
-        //     var totalTime = DateTime.Now.Subtract(startTime).Milliseconds;
-        //     Debug.Log(totalTime);
-        //     state = 2;
-        // }
+        Instantiate(wave);
     }
 }
