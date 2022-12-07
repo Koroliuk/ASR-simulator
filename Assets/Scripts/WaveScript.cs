@@ -1,49 +1,49 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveScript : MonoBehaviour
 {
-    [SerializeField] private int speed;
-
-    Vector3 move = Vector3.back;
     
-    void FixedUpdate()
+    public GameObject minimapIcon;
+    private Dictionary<GameObject, GameObject> _aircraft2Minimap = new Dictionary<GameObject, GameObject>();
+    
+    private void FixedUpdate()
     {
-        transform.Translate(move * speed * Time.deltaTime);
-        transform.localScale += new Vector3(0.01f, 0.01f, 0);
-        // RaycastHit hit;
-        // Ray ray = new Ray(transform.position, move);
-        // Debug.DrawRay (transform.position, move, Color.black);
-        // if (Physics.Raycast(ray, out hit, 1f))
-        // {
-        //     Debug.Log("Raycast");
-        //     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Aircraft"))
-        //     {
-        //         Debug.Log("Aircraft");
-        //         WaveScript newObject = Instantiate(this);
-        //         newObject.move = Vector3.forward;
-        //     }
-        //     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Radar"))
-        //     {
-        //         Debug.Log("Radar");
-        //         Destroy(this);
-        //     }
-        // }
+        var radius = GetComponent<SphereCollider>().radius;
+        if (radius <= 10f)
+        { 
+            transform.localScale += new Vector3(0.01f, 0.01f, 0.01f);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Aircraft"))
         {
+            var aircraft = other.gameObject;
+            if (!_aircraft2Minimap.ContainsKey(aircraft))
+            {
+                var obj = Instantiate(minimapIcon);
+                var pos = aircraft.transform.position;
+                pos.y = 0;
+                obj.transform.position = pos;
+                _aircraft2Minimap.Add(aircraft, obj);
+            }
+            else
+            {
+                var obj = _aircraft2Minimap[aircraft];
+                var pos = aircraft.transform.position;
+                pos.y = 0;
+                obj.transform.position = pos;
+                _aircraft2Minimap.Add(aircraft, obj);
+            }
             Debug.Log("Aircraft");
-            WaveScript newObject = Instantiate(this);
-            newObject.move = Vector3.forward;
+            Debug.Log(other.gameObject.transform.position);
         }
-        // if (other.gameObject.layer == LayerMask.NameToLayer("Radar"))
-        // {
-        //     Debug.Log("Radar");
-        //     Destroy(gameObject);
-        // }
     }
 }
 
