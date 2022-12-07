@@ -5,7 +5,7 @@ using Random = System.Random;
 
 public class AircraftScript : MonoBehaviour
 {
-    private float _speed = 0.5f;
+    private float _speed = 0.1f;
     private State _state = State.Start;
     private Vector3 _destination;
     

@@ -7,7 +7,7 @@ public class RadarScript : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(CreateWave), 0.0f, 3f);
+        InvokeRepeating(nameof(CreateWave), 0.0f, 2f);
     }
 
     private void CreateWave()

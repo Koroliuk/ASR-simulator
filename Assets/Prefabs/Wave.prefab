@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4543207401770185358}
   - component: {fileID: 7232359637256999031}
   - component: {fileID: 630028469823310296}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa3d34ad3395623ca40e9c71f6708ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimapIcon: {fileID: 5935952536874472692, guid: 8a7aa18cfbb36f65c9e79fafe37376b9, type: 3}
+  minimapIcon: {fileID: 1894687557374456235, guid: f8246a887fbb3d030a38c333227ef5ba, type: 3}
 --- !u!54 &7232359637256999031
 Rigidbody:
   m_ObjectHideFlags: 0
