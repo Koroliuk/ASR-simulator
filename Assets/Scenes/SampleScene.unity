@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 106840133}
   - component: {fileID: 106840132}
   - component: {fileID: 106840131}
+  - component: {fileID: 106840135}
   m_Layer: 6
   m_Name: Aircraft (1)
   m_TagString: Untagged
@@ -189,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106840129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.32, y: 0.77, z: -3.79}
+  m_LocalPosition: {x: -2.72, y: 0.39, z: -1.39}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -275,6 +276,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106840129}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &106840135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106840129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5bfcde5b584cd1b394259b9f4569d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &317957187
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317957187}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 11.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -705,14 +718,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.077827856, y: -0.70573276, z: 0.077189855, w: 0.699947}
-  m_LocalPosition: {x: 4.482, y: 2.11, z: 0}
+  m_LocalRotation: {x: 0.39025256, y: -0, z: -0, w: 0.9207079}
+  m_LocalPosition: {x: 0, y: 10.81, z: -8.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 12.586, y: -90.483, z: -0.105}
+  m_LocalEulerAnglesHint: {x: 45.94, y: 0, z: 0}
 --- !u!1 &1149625566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1220,7 @@ GameObject:
   - component: {fileID: 1991296156}
   - component: {fileID: 1991296155}
   - component: {fileID: 1991296158}
+  - component: {fileID: 1991296159}
   m_Layer: 6
   m_Name: Aircraft
   m_TagString: Untagged
@@ -1308,6 +1322,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1991296159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991296152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5bfcde5b584cd1b394259b9f4569d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5935952536640671779
 PrefabInstance:
   m_ObjectHideFlags: 0

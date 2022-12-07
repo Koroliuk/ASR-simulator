@@ -41,8 +41,8 @@ public class WaveScript : MonoBehaviour
                 obj.transform.position = pos;
                 _aircraft2Minimap.Add(aircraft, obj);
             }
-            Debug.Log("Aircraft");
-            Debug.Log(other.gameObject.transform.position);
+            // Debug.Log("Aircraft");
+            // Debug.Log(other.gameObject.transform.position);
         }
     }
 }
