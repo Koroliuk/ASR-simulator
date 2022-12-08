@@ -5,7 +5,7 @@ using Random = System.Random;
 
 public class AircraftScript : MonoBehaviour
 {
-    private float _speed = 0.1f;
+    private float _speed = 0.5f;
     private State _state = State.Start;
     private Vector3 _destination;
     
@@ -34,8 +34,8 @@ public class AircraftScript : MonoBehaviour
         var x = currentPosition.x;
         var y = currentPosition.y;
         var z = currentPosition.z;
-        while (!(Math.Abs(currentPosition.y-y) < 0.5 && y > 0.5 && x*x + z*z > 0.25 && 
-                 (x-currentPosition.x)*(x-currentPosition.x) + (z-currentPosition.z)*(z-currentPosition.z) > 0.25))
+        while (!(Math.Abs(currentPosition.y-y) < 0.5 && y > 0.5 && x*x + z*z > 9 && 
+                 (x-currentPosition.x)*(x-currentPosition.x) + (z-currentPosition.z)*(z-currentPosition.z) > 4))
         {
             x = GenerateRandomNumber();
             y = GenerateRandomNumber();

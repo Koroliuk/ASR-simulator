@@ -3,65 +3,38 @@ using UnityEngine;
 
 public class WaveScript : MonoBehaviour
 {
+    private const int MaxScale = 70;
     public GameObject minimapIcon;
-    private List<GameObject> list = new();
+    private readonly List<GameObject> _createdIcons = new();
     
     private void FixedUpdate()
     {
-        if (transform.localScale.x < 12) 
+        if (transform.localScale.x < MaxScale) 
         { 
-            transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+            transform.localScale += new Vector3(0.6f, 0.6f, 0.6f);
         }
         else
         {
             Destroy(gameObject);
-            // foreach (var icon in list)
-            // {
-            //     Destroy(icon);
-            // }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Aircraft"))
+        var obj = other.gameObject;
+        if (obj.layer == LayerMask.NameToLayer("Aircraft"))
         {
-            var aircraft = other.gameObject;
-            var obj = Instantiate(minimapIcon);
-            var pos = aircraft.transform.position;
-            pos.y = 0;
-            obj.transform.position = pos;
-            list.Add(obj);
-            // var aircraft = other.gameObject;
-            // var id = aircraft.GetInstanceID();
-            // if (!_aircraft2Minimap.ContainsKey(id))
-            // {
-            //     var obj = Instantiate(minimapIcon);
-            //     var pos = aircraft.transform.position;
-            //     pos.y = 0;
-            //     obj.transform.position = pos;
-            //     _aircraft2Minimap.TryAdd(id, obj);
-            // }
-            // else
-            // {
-            //     var obj = _aircraft2Minimap[id];
-            //     _aircraft2Minimap.TryRemove(id, out obj);
-            //     Destroy(obj.gameObject);
-            //     var pos = aircraft.transform.position;
-            //     pos.y = 0;
-            //     obj.transform.position = pos;
-            //     _aircraft2Minimap.TryAdd(id, obj);
-            // }
-            // Debug.Log("Aircraft");
-            // Debug.Log(other.gameObject.transform.position);
-        } else if (other.gameObject.layer == LayerMask.NameToLayer("Minimap"))
+            var icon = Instantiate(minimapIcon);
+            var pos = obj.transform.position;
+            icon.transform.position = pos;
+            _createdIcons.Add(icon);
+        }
+        else if (obj.layer == LayerMask.NameToLayer("Minimap"))
         {
-            if (!list.Contains(other.gameObject))
+            if (!_createdIcons.Contains(obj))
             {
-                other.gameObject.layer = LayerMask.NameToLayer("Ignore");
+                obj.layer = LayerMask.NameToLayer("Ignore");
             }
-            // Destroy(other.gameObject);
-            // Destroy(other);
         }
     }
 }
