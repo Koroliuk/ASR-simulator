@@ -1,34 +1,20 @@
-using System;
 using UnityEngine;
 
 public class RadarScript : MonoBehaviour
 {
+    [SerializeField]
+    private float waveRate = 4f;
+    
+    [SerializeField]
     public GameObject wave;
-    
-    private int state = 0;
-    private DateTime startTime;
-    
-    private void FixedUpdate()
+
+    private void Start()
     {
-        if (state == 0)
-        {
-            Instantiate(wave);
-            startTime = DateTime.Now;
-            state = 1;
-        } else if (state == 2)
-        {
-            Debug.Log("New radar step");
-        }
+        InvokeRepeating(nameof(CreateWave), 0.0f, waveRate);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void CreateWave()
     {
-        if (state == 1)
-        {
-            Destroy(other.gameObject);
-            var totalTime = DateTime.Now.Subtract(startTime).Milliseconds;
-            Debug.Log(totalTime);
-            state = 2;
-        }
+        Instantiate(wave);
     }
 }

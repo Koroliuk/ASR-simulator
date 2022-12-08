@@ -1,49 +1,48 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveScript : MonoBehaviour
 {
-    [SerializeField] private int speed;
-
-    Vector3 move = Vector3.back;
+    [SerializeField]
+    private int maxScale = 70;
     
-    void FixedUpdate()
+    [SerializeField]
+    public float waveSpeed = 0.6f;
+    
+    [SerializeField]
+    public GameObject minimapIcon;
+    
+    private readonly List<GameObject> _createdIcons = new();
+    
+    private void FixedUpdate()
     {
-        transform.Translate(move * speed * Time.deltaTime);
-        transform.localScale += new Vector3(0.01f, 0.01f, 0);
-        // RaycastHit hit;
-        // Ray ray = new Ray(transform.position, move);
-        // Debug.DrawRay (transform.position, move, Color.black);
-        // if (Physics.Raycast(ray, out hit, 1f))
-        // {
-        //     Debug.Log("Raycast");
-        //     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Aircraft"))
-        //     {
-        //         Debug.Log("Aircraft");
-        //         WaveScript newObject = Instantiate(this);
-        //         newObject.move = Vector3.forward;
-        //     }
-        //     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Radar"))
-        //     {
-        //         Debug.Log("Radar");
-        //         Destroy(this);
-        //     }
-        // }
+        if (transform.localScale.x < maxScale) 
+        { 
+            transform.localScale += new Vector3(waveSpeed, waveSpeed, waveSpeed);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Aircraft"))
+        var obj = other.gameObject;
+        if (obj.layer == LayerMask.NameToLayer("Aircraft"))
         {
-            Debug.Log("Aircraft");
-            WaveScript newObject = Instantiate(this);
-            newObject.move = Vector3.forward;
+            var icon = Instantiate(minimapIcon);
+            var pos = obj.transform.position;
+            icon.transform.position = pos;
+            _createdIcons.Add(icon);
         }
-        // if (other.gameObject.layer == LayerMask.NameToLayer("Radar"))
-        // {
-        //     Debug.Log("Radar");
-        //     Destroy(gameObject);
-        // }
+        else if (obj.layer == LayerMask.NameToLayer("Minimap"))
+        {
+            if (!_createdIcons.Contains(obj))
+            {
+                obj.layer = LayerMask.NameToLayer("Ignore");
+            }
+        }
     }
 }
 
