@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class RadarScript : MonoBehaviour
 {
+    [SerializeField]
     private float waveRate = 4f;
+    
+    [SerializeField]
     public GameObject wave;
 
     private void Start()

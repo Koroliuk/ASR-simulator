@@ -3,15 +3,22 @@ using UnityEngine;
 
 public class WaveScript : MonoBehaviour
 {
-    private const int MaxScale = 70;
+    [SerializeField]
+    private int maxScale = 70;
+    
+    [SerializeField]
+    public float waveSpeed = 0.6f;
+    
+    [SerializeField]
     public GameObject minimapIcon;
+    
     private readonly List<GameObject> _createdIcons = new();
     
     private void FixedUpdate()
     {
-        if (transform.localScale.x < MaxScale) 
+        if (transform.localScale.x < maxScale) 
         { 
-            transform.localScale += new Vector3(0.6f, 0.6f, 0.6f);
+            transform.localScale += new Vector3(waveSpeed, waveSpeed, waveSpeed);
         }
         else
         {

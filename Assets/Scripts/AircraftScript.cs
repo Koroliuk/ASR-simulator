@@ -5,7 +5,11 @@ using Random = System.Random;
 
 public class AircraftScript : MonoBehaviour
 {
-    private float _speed = 0.5f;
+    private const float MaxGenValue = 20f;
+
+    [SerializeField]
+    private float speed = 0.5f;
+    
     private State _state = State.Start;
     private Vector3 _destination;
     
@@ -25,7 +29,7 @@ public class AircraftScript : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, _destination, _speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
         }
     }
 
@@ -48,7 +52,7 @@ public class AircraftScript : MonoBehaviour
     private static float GenerateRandomNumber()
     {
         var random = new Random();
-        return (float) ((4 * 2) * random.NextDouble() + (-4));
+        return (float) (MaxGenValue * 2 * random.NextDouble() + -1 * MaxGenValue);
     }
     
     private enum State
