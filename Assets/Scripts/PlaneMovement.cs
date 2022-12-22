@@ -27,11 +27,11 @@ public class PlaneMovement : MonoBehaviour
 
     private int _destinationIndex = 0;
 
-    private float speed = 4000f; // change to 100
+    private float speed = 100f; // change to 100
 
     private void Update()
     {
-        Debug.Log(transform.position);
+        // Debug.Log(transform.position);
         var destination = _destinations[_destinationIndex];
         if (Math.Abs(transform.position.x - destination.X) < 1 && 
             Math.Abs(transform.position.z - destination.Z) < 1)
