@@ -16,7 +16,7 @@ public class RotationRadarScript : MonoBehaviour
     // {
     //     var obj = other.gameObject;
     //     if (obj.layer == LayerMask.NameToLayer("Aircraft"))
-    //     {
+    //     {z
     //         Debug.Log(obj.transform.position);
     //     }
     // }
