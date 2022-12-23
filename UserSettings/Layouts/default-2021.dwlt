@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1001
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 19
+  controlID: 32
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 20
+  controlID: 33
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,38 +317,38 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/TrueClouds/ExampleScenes/Scenes/Dragon
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/TrueClouds/ExampleScenes/Scenes/Dragon
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/koroliuk/UnityLabs/ASR-simulator
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 6e660000
-    m_LastClickedID: 26222
-    m_ExpandedIDs: 000000001265000014650000ac660000ca770000dc770000de7700002078000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 183}
+    m_SelectedIDs: 80d20000
+    m_LastClickedID: 53888
+    m_ExpandedIDs: 00000000a4670000a6670000a8670000ac670000ae670000b067000036d2000046d200007cd2000082d2000086d2000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Dragon
+      m_OriginalName: Dragon
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 53888
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 5}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001265000014650000
+    m_ExpandedIDs: 00000000a4670000a6670000a8670000aa670000ac670000ae670000b0670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -488,9 +488,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c24effff
-      m_LastClickedID: -45374
-      m_ExpandedIDs: b43afffffa4effff6c5affff78c5fffff8f8ffff02fbffffd06100003462000076630000de6300000a64000014640000
+      m_SelectedIDs: 7ad20000
+      m_LastClickedID: 0
+      m_ExpandedIDs: ec94ffff5895ffff8098ffffa298ffffb298ffff8a99ffff86a3ffff00fbffff02fbffff6262000096620000bc6300003e6400007a6400000c670000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -739,9 +739,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 1.5}
+    m_Target: {x: 24.536526, y: 2.434308, z: 1.2592237}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 1.5}
+    m_Value: {x: 24.536526, y: 2.434308, z: 1.2592237}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -788,13 +788,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.5051346, y: -0.45214814, z: 0.35496327, w: -0.6438062}
+    m_Target: {x: 0.09582678, y: 0.90383303, z: -0.2819655, w: 0.30741242}
     speed: 2
-    m_Value: {x: -0.5051133, y: -0.45212913, z: 0.35494834, w: -0.6437791}
+    m_Value: {x: 0.09582181, y: 0.9037862, z: -0.28195086, w: 0.30739647}
   m_Size:
-    m_Target: 7062.848
+    m_Target: 20.009537
     speed: 2
-    m_Value: 7062.848
+    m_Value: 20.009537
   m_Ortho:
     m_Target: 1
     speed: 2

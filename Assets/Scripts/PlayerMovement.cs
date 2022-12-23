@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
@@ -17,7 +19,12 @@ public class PlayerMovement : MonoBehaviour
     
     private Vector3 velocity;
     private bool isGrounded;
-    
+
+    private void Start()
+    {
+        SceneManager.LoadScene("Scene2", LoadSceneMode.Additive);
+    }
+
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
