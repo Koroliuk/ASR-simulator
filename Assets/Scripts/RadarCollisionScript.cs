@@ -5,6 +5,8 @@ using UnityEngine;
 public class RadarCollisionScript : MonoBehaviour
 {
     public GameObject icon;
+    
+    private static IDictionary<int, int> iconId2PlaneId = new Dictionary<int, int>();
 
     void OnTriggerEnter(Collider other)
     {
@@ -30,6 +32,35 @@ public class RadarCollisionScript : MonoBehaviour
             var startPos = new Vector3(rAdjusted, 3f, 0f);
             var endPos = Quaternion.Euler(0f, -degree, 0f) * startPos;
             createdIcon.transform.position = endPos;
+            iconId2PlaneId.Add(createdIcon.GetInstanceID(), obj.GetInstanceID());
+            if (RotateLineIndicator.Ways.ContainsKey(obj.GetInstanceID()))
+            {
+                var gameObj = RotateLineIndicator.Ways[obj.GetInstanceID()];
+                gameObj.layer = LayerMask.NameToLayer("Minimap");
+                var lineRenderer = gameObj.GetComponent<LineRenderer>();
+                
+                lineRenderer.positionCount += 1;
+                lineRenderer.SetPosition(lineRenderer.positionCount-1,new Vector3(endPos.x, endPos.y, endPos.z));
+            }
+            else
+            {
+                var newGameObj = new GameObject();
+                newGameObj.layer = LayerMask.NameToLayer("Minimap");
+                var newLineRenderer = newGameObj.AddComponent<LineRenderer>();
+                    
+                newLineRenderer.startWidth = 1.17f;
+                newLineRenderer.endWidth = 1.17f;
+                newLineRenderer.startColor = Color.cyan;
+                newLineRenderer.endColor = Color.cyan;
+                    
+                var yourMaterial = (Material)Resources.Load("Crcle123", typeof(Material));
+                newLineRenderer.material = yourMaterial;
+
+                newLineRenderer.positionCount = 1;
+                newLineRenderer.SetPosition(0,new Vector3(endPos.x, endPos.y, endPos.z));
+
+                RotateLineIndicator.Ways.Add(obj.GetInstanceID(), newGameObj);
+            }
         }
         else if (obj.layer == LayerMask.NameToLayer("Clouds"))
         {
@@ -37,5 +68,10 @@ public class RadarCollisionScript : MonoBehaviour
             Debug.Log(obj.transform.position);
         }
     }
-    
+
+    public static IDictionary<int, int> IconId2PlaneId
+    {
+        get => iconId2PlaneId;
+        set => iconId2PlaneId = value;
+    }
 }

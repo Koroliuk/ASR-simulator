@@ -39,7 +39,7 @@ public class MyCloudsGenerator : MonoBehaviour
                     width,
                     10,
                     width
-                    );
+                );
                 placed.transform.parent = transform;
             }
         }

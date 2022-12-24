@@ -9,7 +9,8 @@ public class RotateLineIndicator : MonoBehaviour
     public Collider collider;
     public LineRenderer lineRenderer;
     public float speed = 10;
-
+    // public GameObject wayLine;
+    
     void Start()
     {
         lineRenderer.positionCount = 2;
@@ -30,9 +31,31 @@ public class RotateLineIndicator : MonoBehaviour
         collider.transform.RotateAround(new Vector3(0, 0, 0), new Vector3(0, 1, 0), speed * Time.deltaTime);
     }
 
+    private struct Point
+    {
+        public Point(float x, float y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public float X { get; set; }
+        public float Y { get; set; }
+
+    }
+
+    private static IDictionary<int, GameObject> ways = new Dictionary<int, GameObject>();
+
+    public static IDictionary<int, GameObject> Ways
+    {
+        get => ways;
+        set => ways = value;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var obj = other.gameObject;
+        var id = obj.GetInstanceID();
         if (obj.layer == LayerMask.NameToLayer("Icon"))
         {
             Debug.Log(obj.tag);
@@ -42,6 +65,7 @@ public class RotateLineIndicator : MonoBehaviour
             }
             else
             {
+                RadarCollisionScript.IconId2PlaneId.Remove(obj.GetInstanceID());
                 obj.layer = LayerMask.NameToLayer("Ignore");
                 Destroy(obj);
             }
