@@ -5,6 +5,7 @@ using UnityEngine;
 public class RadarCollisionScript : MonoBehaviour
 {
     public GameObject icon;
+    public GameObject cloudIcon;
     
     private static IDictionary<int, int> iconId2PlaneId = new Dictionary<int, int>();
 
@@ -32,6 +33,7 @@ public class RadarCollisionScript : MonoBehaviour
             var startPos = new Vector3(rAdjusted, 3f, 0f);
             var endPos = Quaternion.Euler(0f, -degree, 0f) * startPos;
             createdIcon.transform.position = endPos;
+            
             iconId2PlaneId.Add(createdIcon.GetInstanceID(), obj.GetInstanceID());
             if (RotateLineIndicator.Ways.ContainsKey(obj.GetInstanceID()))
             {
@@ -66,6 +68,25 @@ public class RadarCollisionScript : MonoBehaviour
         {
             Debug.Log("Cloud");
             Debug.Log(obj.transform.position);
+            var position = obj.transform.position;
+            Debug.Log(position);
+
+            var x = position.x;
+            var z = position.z;
+
+            var r = Mathf.Sqrt(x * x + z * z);
+            var degree = Mathf.Atan(z / x);
+            if (x < 0)
+            {
+                degree += Mathf.PI;
+            }
+            degree *= Mathf.Rad2Deg;
+            
+            var rAdjusted = (float)2 * r / 3000;
+            var createdIcon = Instantiate(icon);
+            var startPos = new Vector3(rAdjusted, 3f, 0f);
+            var endPos = Quaternion.Euler(0f, -degree, 0f) * startPos;
+            createdIcon.transform.position = endPos;
         }
     }
 
