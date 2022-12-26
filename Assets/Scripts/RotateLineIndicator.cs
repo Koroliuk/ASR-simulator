@@ -56,7 +56,7 @@ public class RotateLineIndicator : MonoBehaviour
     {
         var obj = other.gameObject;
         var id = obj.GetInstanceID();
-        if (obj.layer == LayerMask.NameToLayer("Icon"))
+        if (obj.layer == LayerMask.NameToLayer("TargetIcons") || obj.layer == LayerMask.NameToLayer("CloudIcons"))
         {
             Debug.Log(obj.tag);
             if (obj.CompareTag("Untagged"))

@@ -18,11 +18,11 @@ TagManager:
   - Clouds
   - Icon
   - Terrain
-  - 
-  - 
-  - 
-  - 
-  - 
+  - DistanceCircles
+  - AzimuthLines
+  - TargetIcons
+  - CloudIcons
+  - TargetWay
   - 
   - 
   - 

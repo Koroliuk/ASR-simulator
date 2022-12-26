@@ -38,7 +38,7 @@ public class RadarCollisionScript : MonoBehaviour
             if (RotateLineIndicator.Ways.ContainsKey(obj.GetInstanceID()))
             {
                 var gameObj = RotateLineIndicator.Ways[obj.GetInstanceID()];
-                gameObj.layer = LayerMask.NameToLayer("Minimap");
+                gameObj.layer = LayerMask.NameToLayer("TargetWay");
                 var lineRenderer = gameObj.GetComponent<LineRenderer>();
                 
                 lineRenderer.positionCount += 1;
@@ -47,7 +47,7 @@ public class RadarCollisionScript : MonoBehaviour
             else
             {
                 var newGameObj = new GameObject();
-                newGameObj.layer = LayerMask.NameToLayer("Minimap");
+                newGameObj.layer = LayerMask.NameToLayer("TargetWay");
                 var newLineRenderer = newGameObj.AddComponent<LineRenderer>();
                     
                 newLineRenderer.startWidth = 1.17f;
@@ -83,7 +83,7 @@ public class RadarCollisionScript : MonoBehaviour
             degree *= Mathf.Rad2Deg;
             
             var rAdjusted = (float)2 * r / 3000;
-            var createdIcon = Instantiate(icon);
+            var createdIcon = Instantiate(cloudIcon);
             var startPos = new Vector3(rAdjusted, 3f, 0f);
             var endPos = Quaternion.Euler(0f, -degree, 0f) * startPos;
             createdIcon.transform.position = endPos;
