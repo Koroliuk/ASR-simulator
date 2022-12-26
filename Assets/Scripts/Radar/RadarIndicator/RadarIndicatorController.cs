@@ -30,7 +30,7 @@ namespace Radar.RadarIndicator
             {
                 camera.cullingMask = UpdateLayerConfigurationMask(currentLayerConfigurationMask, "DistanceCircles");
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
                 camera.cullingMask = UpdateLayerConfigurationMask(currentLayerConfigurationMask, "AzimuthLines");
             }
@@ -42,7 +42,7 @@ namespace Radar.RadarIndicator
             {
                 camera.cullingMask = UpdateLayerConfigurationMask(currentLayerConfigurationMask, "CloudIcons");
             }
-            else if (Input.GetKeyDown(KeyCode.W))
+            else if (Input.GetKeyDown(KeyCode.E))
             {
                 camera.cullingMask = UpdateLayerConfigurationMask(currentLayerConfigurationMask, "TargetWay");
             }

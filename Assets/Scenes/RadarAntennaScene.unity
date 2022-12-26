@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276788, g: 0.21589175, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731707, g: 0.13414726, b: 0.12107857, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20594,7 +20594,7 @@ GameObject:
   - component: {fileID: 1535761806}
   - component: {fileID: 1535761805}
   m_Layer: 12
-  m_Name: TerrainGroup_0
+  m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24748,6 +24748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1858111341}
+  - component: {fileID: 1858111342}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -24775,6 +24776,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1858111342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858111340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df95407f71f0701598d48d8154c4a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1862939671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26650,13 +26663,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1950487712}
-  speed: 12
-  jumpHeight: 3
   groundCheck: {fileID: 733511457}
-  groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 1
+  groundDistance: 0.4
+  speed: 12
+  jumpHeight: 3
 --- !u!1001 &1966250792
 PrefabInstance:
   m_ObjectHideFlags: 0
