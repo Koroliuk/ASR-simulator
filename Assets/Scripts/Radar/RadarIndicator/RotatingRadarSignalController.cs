@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RadarIndicator
+namespace Radar.RadarIndicator
 {
     public class RotatingRadarSignalController : MonoBehaviour
     {
