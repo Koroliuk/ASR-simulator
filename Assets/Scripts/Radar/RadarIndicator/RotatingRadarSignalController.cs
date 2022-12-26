@@ -47,7 +47,6 @@ namespace Radar.RadarIndicator
                 }
                 else
                 {
-                    RadarCollisionScript.IconId2PlaneId.Remove(obj.GetInstanceID());
                     obj.layer = LayerMask.NameToLayer("Ignore");
                     Destroy(obj);
                 }

@@ -23881,8 +23881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423ae1a5db6e419e99057c9f29cf424b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 2867177038639699862, guid: fd497c327ea436b12ac2dc1784c5f7fc, type: 3}
-  cloudIcon: {fileID: 2867177038639699862, guid: 0100d37bd7aed531d9dc8e09053c5af8, type: 3}
+  targetIconPrefab: {fileID: 2867177038639699862, guid: fd497c327ea436b12ac2dc1784c5f7fc, type: 3}
+  passiveObstaclePartIconPrefab: {fileID: 2867177038639699862, guid: 0100d37bd7aed531d9dc8e09053c5af8, type: 3}
+  wayLinePrefab: {fileID: 3698203044480509756, guid: c04b6ca18f030eadb9e41509a910b4f2, type: 3}
 --- !u!4 &1818885479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a6acf282455bcbe49b74fd34fff0a6be, type: 3}
