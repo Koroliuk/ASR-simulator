@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        SceneManager.LoadScene("Scene2", LoadSceneMode.Additive);
+        SceneManager.LoadScene("RadarIndicatorScene", LoadSceneMode.Additive);
     }
 
     private void Update()

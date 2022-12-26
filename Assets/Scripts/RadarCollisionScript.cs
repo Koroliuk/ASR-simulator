@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RadarIndicator;
 using UnityEngine;
 
 public class RadarCollisionScript : MonoBehaviour
@@ -8,6 +9,10 @@ public class RadarCollisionScript : MonoBehaviour
     public GameObject cloudIcon;
     
     private static IDictionary<int, int> iconId2PlaneId = new Dictionary<int, int>();
+    
+    private static IDictionary<int, GameObject> ways = new Dictionary<int, GameObject>();
+
+    public static IDictionary<int, GameObject> Ways => ways;
 
     void OnTriggerEnter(Collider other)
     {
@@ -35,9 +40,9 @@ public class RadarCollisionScript : MonoBehaviour
             createdIcon.transform.position = endPos;
             
             iconId2PlaneId.Add(createdIcon.GetInstanceID(), obj.GetInstanceID());
-            if (RotateLineIndicator.Ways.ContainsKey(obj.GetInstanceID()))
+            if (Ways.ContainsKey(obj.GetInstanceID()))
             {
-                var gameObj = RotateLineIndicator.Ways[obj.GetInstanceID()];
+                var gameObj = Ways[obj.GetInstanceID()];
                 gameObj.layer = LayerMask.NameToLayer("TargetWay");
                 var lineRenderer = gameObj.GetComponent<LineRenderer>();
                 
@@ -61,7 +66,7 @@ public class RadarCollisionScript : MonoBehaviour
                 newLineRenderer.positionCount = 1;
                 newLineRenderer.SetPosition(0,new Vector3(endPos.x, endPos.y, endPos.z));
 
-                RotateLineIndicator.Ways.Add(obj.GetInstanceID(), newGameObj);
+                Ways.Add(obj.GetInstanceID(), newGameObj);
             }
         }
         else if (obj.layer == LayerMask.NameToLayer("Clouds"))
