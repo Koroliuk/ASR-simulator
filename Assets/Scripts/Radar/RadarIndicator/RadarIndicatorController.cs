@@ -66,6 +66,12 @@ namespace Radar.RadarIndicator
 
                 var lineRenderer = azimuthLine.GetComponent<LineRenderer>();
 
+                if (angle % 30 == 0)
+                {
+                    lineRenderer.startWidth = 0.3f;
+                    lineRenderer.endWidth = 0.3f;
+                }
+
                 lineRenderer.positionCount = 2;
 
                 lineRenderer.SetPosition(0, new Vector3(0f, 1f, 0f));
@@ -96,8 +102,14 @@ namespace Radar.RadarIndicator
                 var distanceCircle = Instantiate(distanceCirclePrefab, distanceCircles.transform, true);
                 distanceCircle.name = "DistanceCircle " + i;
 
-                var lineRender = distanceCircle.GetComponent<LineRenderer>();
-                lineRender.positionCount = steps;
+                var lineRenderer = distanceCircle.GetComponent<LineRenderer>();
+                lineRenderer.positionCount = steps;
+
+                if ((i + 1) % 5 == 0)
+                {
+                    lineRenderer.startWidth = 0.3f;
+                    lineRenderer.endWidth = 0.3f;   
+                }
 
                 for (var currentStep = 0; currentStep < steps; currentStep++)
                 {
@@ -113,7 +125,7 @@ namespace Radar.RadarIndicator
 
                     var currentPosition = new Vector3(x, 1f, z);
 
-                    lineRender.SetPosition(currentStep, currentPosition);
+                    lineRenderer.SetPosition(currentStep, currentPosition);
                 }
             }
         }

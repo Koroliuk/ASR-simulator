@@ -37,17 +37,18 @@ namespace Radar.RadarSignal
             var obj = other.gameObject;
             if (obj.layer == LayerMask.NameToLayer("Aircraft"))
             {
-                var iconPosition = CreateIcon(obj, targetIconPrefab, _targetIcons);
+                var position = CreateIcon(obj, targetIconPrefab, _targetIcons);
+                position.y += 2;
                 var objId = obj.GetInstanceID();
                 if (WayLines.ContainsKey(objId))
                 {
                     var wayLine = WayLines[objId];
-                    AddPosition(wayLine, iconPosition);
+                    AddPosition(wayLine, position);
                 }
                 else
                 {
                     var wayLine = CreateWayLine();
-                    AddPosition(wayLine, iconPosition);
+                    AddPosition(wayLine, position);
                     WayLines.Add(objId, wayLine);
                 }
             }
