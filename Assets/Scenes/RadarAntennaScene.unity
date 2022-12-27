@@ -310,11 +310,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28037818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1af8839d54bc47a9af8d4a735725f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destinationPoints:
+  - {x: 10000, y: 9000, z: 0}
+  - {x: 0, y: 9000, z: -20000}
+  - {x: -20000, y: 9000, z: -38000}
+  - {x: -45000, y: 9000, z: -35000}
+  - {x: -10000, y: 9000, z: -8500}
+  - {x: -8000, y: 9000, z: 3000}
+  - {x: 0, y: 9000, z: 5000}
+  speed: 100
 --- !u!54 &28037828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3931,7 +3940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1856216891051664401, guid: 99078e3151f42fd42949f97b0b73bd7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30000
+      value: 9000
       objectReference: {fileID: 0}
     - target: {fileID: 1856216891051664401, guid: 99078e3151f42fd42949f97b0b73bd7b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3939,7 +3948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1856216891051664401, guid: 99078e3151f42fd42949f97b0b73bd7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1856216891051664401, guid: 99078e3151f42fd42949f97b0b73bd7b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19631,7 +19640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1856216891051664401, guid: 99078e3151f42fd42949f97b0b73bd7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10040
+      value: 40000
       objectReference: {fileID: 0}
     - target: {fileID: 1856216891051664401, guid: 99078e3151f42fd42949f97b0b73bd7b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19639,7 +19648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1856216891051664401, guid: 99078e3151f42fd42949f97b0b73bd7b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -40000
+      value: -12000
       objectReference: {fileID: 0}
     - target: {fileID: 1856216891051664401, guid: 99078e3151f42fd42949f97b0b73bd7b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20927,6 +20936,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8839d54bc47a9af8d4a735725f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destinationPoints:
+  - {x: 40000, y: 9000, z: -15000}
+  - {x: -20000, y: 9000, z: -12000}
+  - {x: -5000, y: 9000, z: 41000}
+  - {x: 32000, y: 9000, z: 37000}
+  speed: 100
 --- !u!54 &1578919931
 Rigidbody:
   m_ObjectHideFlags: 0

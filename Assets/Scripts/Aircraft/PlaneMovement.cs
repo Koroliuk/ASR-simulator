@@ -1,45 +1,30 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneMovement : MonoBehaviour
+namespace Aircraft
 {
-    public struct Destination
+    public class PlaneMovement : MonoBehaviour
     {
-        public Destination(float x, float z)
+        [SerializeField] private Vector3[] destinationPoints = Array.Empty<Vector3>();
+        [SerializeField] private float speed = 100f;
+        
+        private int _destinationIndex;
+        
+        
+        private void Update()
         {
-            X = x;
-            Z = z;
+            if (destinationPoints.Length > 0)
+            {
+                var destination = destinationPoints[_destinationIndex];
+                if (Math.Abs(transform.position.x - destination.x) < 1 && Math.Abs(transform.position.z - destination.z) < 1)
+                {
+                    _destinationIndex = (_destinationIndex + 1) % destinationPoints.Length;
+                }
+                
+                var move = new Vector3(destination.x, destination.y, destination.z);
+                transform.position = Vector3.MoveTowards(transform.position, move, speed * Time.deltaTime);
+                transform.rotation = Quaternion.LookRotation(move);
+            }
         }
-
-        public float X { get; }
-        public float Z { get; }
-    }
-
-    private List<Destination> _destinations = new()
-    {
-        new Destination(70_000f, 55_000f),
-        new Destination(5_000f, -75_000f),
-        new Destination(60_000f, 47_000f),
-        new Destination(0, 0)
-    };
-
-    private int _destinationIndex = 0;
-
-    private float speed = 100f; // change to 100
-
-    private void Update()
-    {
-        // Debug.Log(transform.position);
-        var destination = _destinations[_destinationIndex];
-        if (Math.Abs(transform.position.x - destination.X) < 1 && 
-            Math.Abs(transform.position.z - destination.Z) < 1)
-        {
-            _destinationIndex = (_destinationIndex + 1) % 4;
-        }
-        var move = new Vector3(destination.X, transform.position.y, destination.Z);
-        transform.position = Vector3.MoveTowards(transform.position, move, speed * Time.deltaTime);
-        transform.rotation = Quaternion.LookRotation(move);
     }
 }
